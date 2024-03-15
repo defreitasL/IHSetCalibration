@@ -12,7 +12,7 @@ setup(
     author='Lucas de Freitas Pereira',
     author_email='lucas.defreitas@unican.es',
     description='IH-SET Utils',
-    url='https://github.com/IHCantabria/IHSetCalibration',
+    url='https://github.com/defreitasL/IHSetCalibration',
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',

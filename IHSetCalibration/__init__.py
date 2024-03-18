@@ -1,4 +1,5 @@
 # src/__init__.py
 
 # Import modules and functions from your package here
-from .objectives_functions import multi_obj_func
+from .objectives_functions import objective_functions
+from .setup_spotpy import setup_spotpy

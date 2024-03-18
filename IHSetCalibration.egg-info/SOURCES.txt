@@ -3,6 +3,7 @@ README.md
 setup.py
 IHSetCalibration/__init__.py
 IHSetCalibration/objectives_functions.py
+IHSetCalibration/setup_spotpy.py
 IHSetCalibration.egg-info/PKG-INFO
 IHSetCalibration.egg-info/SOURCES.txt
 IHSetCalibration.egg-info/dependency_links.txt

@@ -30,7 +30,7 @@ class setup_spotpy(object):
         return self.model_obj.model_sim(par)
     
     def evaluation(self):
-        return self.model_obj.Y_obs_splited
+        return self.model_obj.observations
             
     def objectivefunction(self, simulation, evaluation, params=None):
         return self.model_obj.cal_obj.obj_func(evaluation, simulation)

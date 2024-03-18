@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='IHSetCalibration',
-    version='1.0.2',
+    version='1.0.3',
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
@@ -11,7 +11,7 @@ setup(
     ],
     author='Lucas de Freitas Pereira',
     author_email='lucas.defreitas@unican.es',
-    description='IH-SET Utils',
+    description='IH-SET Calibration package for shoreline evolution models.',
     url='https://github.com/defreitasL/IHSetCalibration',
     classifiers=[
         'Development Status :: 3 - Alpha',

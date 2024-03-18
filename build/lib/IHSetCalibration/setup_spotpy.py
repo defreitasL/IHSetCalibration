@@ -1,5 +1,4 @@
 import spotpy as spt
-import xarray as xr
 
 class setup_spotpy(object):
     """
@@ -128,25 +127,6 @@ class setup_spotpy(object):
 
 
         results = self.sampler.getdata()
-        bestindex,bestobjf = spt.analyser.get_minlikeindex(results)
-        best_model_run = results[bestindex]
-        fields=[word for word in best_model_run.dtype.names if word.startswith('sim')]
-        best_simulation = list(best_model_run[fields])
 
-        a = -best_model_run['para']
-        b = best_model_run['parb']
-        cacr = -best_model_run['parcacr']
-        cero = -best_model_run['parcero']
-
-        res = xr.Dataset(
-            {
-                "a": (["like"], a),
-                "b": (["like"], b),
-                "cacr": (["like"], cacr),
-                "cero": (["like"], cero),
-                "simulation": (["time"], best_simulation),
-            },
-            coords={"time": self.model_obj.time_splited, "like": bestobjf},
-        )
         
-        return res
+        return results

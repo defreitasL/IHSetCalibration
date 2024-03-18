@@ -1,46 +1,43 @@
 
-# IHSetUtils
-Python utils package for IH-SET software.
+# IHSetCalibration
+Python package to perform the calibration in IH-SET software.
 
 ## :house: Local installation
 * Using pip:
 ```bash
 
-pip install git+https://github.com/IHCantabria/IHSetUtils.git
+pip install git+https://github.com/defreitasL/IHSetCalibration.git
 
 ```
 
 ---
 ## :zap: Main methods
 
-* gow2ncEBSC:
+* [objective_functions](./IHSetCalibration/objectives_functions.py):
 ```python
 # transform GOW data to standart wac.nc IH-SET file
-gow2ncEBSC(gowPath)
+objective_functions(method, metrics, **kwargs)
 ```
-* gos2ncEBSC
+* [setup_spotpy](./IHSetCalibration/setup_spotpy.py)
 ```python
 # transform GOS data to standart sl.nc IH-SET file
-gos2ncEBSC(gosPath)
+setup_spotpy(model_object)
 ```
-* got2ncEBSC
-```python
-# transform GOT data to standart sl.nc IH-SET file
-got2ncEBSC(gotPath)
-```
+
 
 
 ## :package: Package structures
 ````
 
-SMCResultPlotHub
+IHSetCalibration
 |
 ├── LICENSE
 ├── README.md
 ├── build
 ├── dist
 ├── IHSetUtils
-│   └── utils
+│   ├── objective_functions.py
+│   └── setup_spotpy.py
 └── .gitignore
 
 ````

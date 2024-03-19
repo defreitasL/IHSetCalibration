@@ -69,7 +69,7 @@ def multi_obj_func_mss_rmse(evaluation, simulation):
 
     """
     like1 = spt.objectivefunctions.rmse(evaluation, simulation)/5
-    like2 = np.sum((simulation - evaluation)**2)/len(simulation)/(np.var(simulation)+np.var(evaluation)+(np.mean(simulation)-np.mean(evaluation))**2)
+    like2 = 1 - mielke_skill_score(evaluation, simulation)
 
     return [like1, like2]
 
@@ -90,7 +90,7 @@ def multi_obj_func_mss_rp(evaluation, simulation):
     """
 
     like1 = spt.objectivefunctions.rsquared(evaluation, simulation) * -1
-    like2 = np.sum((simulation - evaluation)**2)/len(simulation)/(np.var(simulation)+np.var(evaluation)+(np.mean(simulation)-np.mean(evaluation))**2)
+    like2 = 1 - mielke_skill_score(evaluation, simulation)
 
     return [like1, like2]
 
@@ -110,7 +110,7 @@ def multi_obj_func_mss_nsse(evaluation, simulation):
 
     """
     like1 = 1 - spt.objectivefunctions.nashsutcliffe(evaluation, simulation)
-    like2 = np.sum((simulation - evaluation)**2)/len(simulation)/(np.var(simulation)+np.var(evaluation)+(np.mean(simulation)-np.mean(evaluation))**2)
+    like2 = 1 - mielke_skill_score(evaluation, simulation)
 
     return [like1, like2]
 
@@ -169,8 +169,7 @@ def obj_func_mss(evaluation, simulation):
         Three different kinds of objective functions.
 
     """
-    like = np.sum((simulation - evaluation)**2)/len(simulation)/(np.var(simulation)+np.var(evaluation)+(np.mean(simulation)-np.mean(evaluation))**2)
-    return [like]
+    like = 1 - mielke_skill_score(evaluation, simulation)
 
 def obj_func_rmse(evaluation, simulation):
     """
@@ -248,7 +247,6 @@ def mielke_skill_score(evaluation, simulation):
         mss= 1-(  ( d1* (1/len(evaluation))  ) / d2 )
 
     return mss
-
 
 def correlation_coefficient_loss(evaluation, simulation):
     x = evaluation

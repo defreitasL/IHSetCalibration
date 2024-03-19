@@ -225,3 +225,42 @@ def obj_func_nsse(evaluation, simulation):
     """
     like = 1 - spt.objectivefunctions.nashsutcliffe(evaluation, simulation)
     return [like]
+
+def mielke_skill_score(evaluation, simulation):
+    """ Mielke index 
+    if pearson coefficient (r) is zero or positive use kappa=0
+    otherwise see Duveiller et al. 2015
+    """
+    x = evaluation
+    y = simulation
+    mx = np.mean(x)
+    my = np.mean(y)
+    xm, ym = x-mx, y-my
+
+    diff= (evaluation - simulation) ** 2 
+    d1= np.sum(diff)
+    d2= np.var(evaluation)+np.var(simulation)+ (np.mean(evaluation)-np.mean(simulation))**2
+    
+    if correlation_coefficient_loss(evaluation, simulation) < 0:
+        kappa = np.abs( np.sum(xm*ym)) * 2
+        mss= 1-(  ( d1* (1/len(evaluation))  ) / (d2 +kappa))
+    else:
+        mss= 1-(  ( d1* (1/len(evaluation))  ) / d2 )
+
+    return mss
+
+
+def correlation_coefficient_loss(evaluation, simulation):
+    x = evaluation
+    y = simulation
+    mx = np.mean(x)
+    my = np.mean(y)
+    xm, ym = x-mx, y-my
+    r_num = np.sum(xm*ym)
+    r_den = np.sqrt(np.sum(np.square(xm)) * np.sum(np.square(ym)))
+    r = r_num / r_den
+    r = np.maximum(np.minimum(r, 1.0), -1.0)
+
+    return 1- np.square(r)
+
+ 

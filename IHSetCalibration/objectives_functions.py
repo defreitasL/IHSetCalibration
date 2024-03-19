@@ -171,6 +171,8 @@ def obj_func_mss(evaluation, simulation):
     """
     like = 1 - mielke_skill_score(evaluation, simulation)
 
+    return [like]
+
 def obj_func_rmse(evaluation, simulation):
     """
     Parameters

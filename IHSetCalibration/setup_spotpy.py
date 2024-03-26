@@ -57,7 +57,7 @@ class setup_spotpy(object):
 
         if self.model_obj.cal_obj.method == 'NSGAII':
             self.sampler = spt.algorithms.NSGAII(
-                        spot_setup=self, dbname="NSGA2"
+                        spot_setup=self
             )
             self.sampler.sample(
                                 self.model_obj.generations,
@@ -66,62 +66,62 @@ class setup_spotpy(object):
                                 )
         elif self.model_obj.cal_obj.method == 'mle':
             self.sampler = spt.algorithms.mle(
-                        spot_setup=self, dbname="MLE"
+                        spot_setup=self
             )
             self.sampler.sample(self.model_obj.repetitions)
         elif self.model_obj.cal_obj.method == 'mc':
             self.sampler = spt.algorithms.mc(
-                        spot_setup=self, dbname="MC"
+                        spot_setup=self
             )
             self.sampler.sample(self.model_obj.repetitions)
         elif self.model_obj.cal_obj.method == 'dds':
             self.sampler = spt.algorithms.dds(
-                        spot_setup=self, dbname="DDS"
+                        spot_setup=self
             )
             self.sampler.sample(self.model_obj.repetitions)
         elif self.model_obj.cal_obj.method == 'mcmc':
             self.sampler = spt.algorithms.mcmc(
-                        spot_setup=self, dbname="MCMC"
+                        spot_setup=self
             )
             self.sampler.sample(self.model_obj.repetitions)
         elif self.model_obj.cal_obj.method == 'sa':
             self.sampler = spt.algorithms.sa(
-                        spot_setup=self, dbname="SA"
+                        spot_setup=self
             )
             self.sampler.sample(self.model_obj.repetitions)
         elif self.model_obj.cal_obj.method == 'abc':
             self.sampler = spt.algorithms.abc(
-                        spot_setup=self, dbname="ABC"
+                        spot_setup=self
             )
             self.sampler.sample(self.model_obj.repetitions)
         elif self.model_obj.cal_obj.method == 'lhs':
             self.sampler = spt.algorithms.lhs(
-                        spot_setup=self, dbname="LHS"
+                        spot_setup=self
             )
             self.sampler.sample(self.model_obj.repetitions)
         elif self.model_obj.cal_obj.method == 'rope':
             self.sampler = spt.algorithms.rope(
-                        spot_setup=self, dbname="ROPE"
+                        spot_setup=self
             )
             self.sampler.sample(self.model_obj.repetitions)
         elif self.model_obj.cal_obj.method == 'sceua':
             self.sampler = spt.algorithms.sceua(
-                        spot_setup=self, dbname="SCEUA"
+                        spot_setup=self
             )
             self.sampler.sample(self.model_obj.repetitions)
         elif self.model_obj.cal_obj.method == 'demcz':
             self.sampler = spt.algorithms.demcz(
-                        spot_setup=self, dbname="DEMCMCZ"
+                        spot_setup=self
             )
             self.sampler.sample(self.model_obj.repetitions)
         elif self.model_obj.cal_obj.method == 'padds':
             self.sampler = spt.algorithms.padds(
-                        spot_setup=self, dbname="PADDS"
+                        spot_setup=self
             )
             self.sampler.sample(self.model_obj.repetitions)
         elif self.model_obj.cal_obj.method == 'fscabc':
             self.sampler = spt.algorithms.fscabc(
-                        spot_setup=self, dbname="FSCABC"
+                        spot_setup=self
             )
             self.sampler.sample(self.model_obj.repetitions)
 
